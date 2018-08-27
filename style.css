@@ -13,8 +13,23 @@
 .main {
     margin-left: 200px; /* Same as the width of the sidenav */
 }
-#shape-box{
+#shape-box {
     height: 600px;
     width: 600px;
     background-color: skyblue
+}
+.square {
+    background-color: red
+}
+.rectangle {
+    background-color: green
+}
+.circle {
+    background-color: purple
+}
+#triangle {
+	width: 0px;
+	height: 0px;
+	border-bottom: 100px solid yellow;
+	border-right: 100px solid transparent;
 }

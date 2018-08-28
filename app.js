@@ -34,8 +34,20 @@ class Square extends Shape {
 class Rectangle extends Shape {
     constructor(height, length) {
         super(height, length)
+        let xVal = ranVal(0, MAX)
+        let yVal = ranVal(0, MAX)
+        let area = this.getArea()
+        let perm = this.getPerimeter()
+        this.div = $(`<div class="rectangle" style="left:${xVal}px; top:${yVal}px; height: ${this.height}em; width:${this.length}em;"></div>`).appendTo(`#shape-box`);
+        this.div.click(function () {
+            $(`.shape-info`).empty()
+            $(`<div>Area: ${area}</div>`).appendTo(`#Area`)
+            $(`<div>Perimeter: ${perm}</div>`).appendTo(`#Perimeter`)
+            $(`<div>Width: ${this.length}</div>`).appendTo(`#Width`)
+            $(`<div>Height: ${this.height}</div>`).appendTo(`#Height`)
+        }.bind(this))
     }
-}
+};
 
 class Circle extends Shape {
     constructor(height) {
@@ -73,6 +85,13 @@ $(`#squ`).click(function () {
     let height = $(`#side-s`).val()
     let length = $(`#side-s`).val()
     let sq = new Square(height, length)
+    console.log($(`#side-s`).val())
+})
+$(`#rec`).click(function () {
+    event.preventDefault()
+    let height = $(`#height-r`).val()
+    let length = $(`#length-r`).val()
+    let rec = new Rectangle(height, length)
     console.log($(`#side-s`).val())
 })
 

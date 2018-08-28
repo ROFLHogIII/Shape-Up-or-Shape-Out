@@ -3,7 +3,19 @@ class Shape {
     constructor(height, length) {
         this.height = height;
         this.length = length;
-    };
+        $(this).click(function () {
+            (`.shape-info`).empty()
+            area = this.getArea();
+            perm = this.getPerimeter();
+            h = this.height
+            l = this.length
+            $(`<div>Area: ${area}</div>`).appendTo(`#Area`)
+            $(`<div>Perimiter: ${perm}</div>`).appendTo(`#Perimeter`)
+            $(`<div>Width: ${l}</div>`).appendTo(`#Width`)
+            $(`<div>Height: ${h}</div>`).appendTo(`#Height`)
+        });
+
+    }
     getArea() {
         return (this.length * this.height)
     }
@@ -70,20 +82,8 @@ $(`#squ`).click(function () {
     let yVal = ranVal(0, MAX)
     $(`<div class="square" style="left:${xVal}px; top:${yVal}px; height: ${height}em; width:${length}em;"></div>`).appendTo(`#shape-box`)
     console.log($(`#side-s`).val())
-    
 })
 
 function ranVal(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
 }
-function appendBox(){
-    (`.shape-info`).empty()
-    area = this.getArea();
-    perm = this.getPerimeter();
-    h = this.height
-    l = this.length
-    $(`<div>Area: ${area}</div>`).appendTo(`#Area`)
-    $(`<div>Perimiter: ${perm}</div>`).appendTo(`#Perimeter`)
-    $(`<div>Width: ${l}</div>`).appendTo(`#Width`)
-    $(`<div>Height: ${h}</div>`).appendTo(`#Height`)
-};

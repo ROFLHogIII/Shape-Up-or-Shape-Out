@@ -34,10 +34,8 @@
     background-color: purple;
     position: absolute;
 }
-#triangle {
+.triangle {
 	width: 0px;
 	height: 0px;
-	border-bottom: 100px solid yellow;
-    border-right: 100px solid transparent;
     position: absolute;
 }

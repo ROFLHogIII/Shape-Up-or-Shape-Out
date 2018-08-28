@@ -74,14 +74,24 @@ class Circle extends Shape {
     getPerimeter() {
         return 2 * 3.14 * Number(this.height)
     }
-}
-//let circle = new Circle(height)
-//circle.getArea()
-//circle.getPerimeter()
+};
 
 class Triangle extends Shape {
     constructor(height) {
         super(height)
+        let xVal = ranVal(0, MAX)
+        let yVal = ranVal(0, MAX)
+        let area = this.getArea()
+        let perm = this.getPerimeter()
+        this.div = $(`<div class="triangle" style="left:${xVal}px; top:${yVal}px; border-bottom:${this.height}em solid yellow; border-right: ${this.height}em solid transparent;"></div>`).appendTo(`#shape-box`);
+        this.div.click(function () {
+            $(`.shape-info`).empty()
+            $(`<div>Type: Right Isoceles Triangle</div>`).appendTo(`#Shape-Name`)
+            $(`<div>Area: ${area}</div>`).appendTo(`#Area`)
+            $(`<div>Perimeter: ${perm}</div>`).appendTo(`#Perimeter`)
+            $(`<div>Hypotanuse: ${Math.sqrt(Math.pow(this.height, 2) * 2)}</div>`).appendTo(`#Width`)
+            $(`<div>Height: ${this.height}</div>`).appendTo(`#Height`)
+        }.bind(this))
     }
     getArea() {
         return (this.height * this.height) / 2
@@ -111,7 +121,11 @@ $(`#cir`).click(function () {
     event.preventDefault()
     let height = ($(`#radius`).val())
     let cir = new Circle(height)
-    console.log(height)
+})
+$(`#tri`).click(function () {
+    event.preventDefault()
+    let height = ($(`#height-t`).val())
+    let tri = new Triangle(height)
 })
 
 function ranVal(min, max) {

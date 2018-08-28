@@ -21,6 +21,7 @@ class Square extends Shape {
         let perm = this.getPerimeter()
         this.div = $(`<div class="square" style="left:${xVal}px; top:${yVal}px; height: ${this.height}em; width:${this.length}em;"></div>`).appendTo(`#shape-box`);
         this.div.click(function () {
+            $(`.shape-info`).empty()
             $(`<div>Area: ${area}</div>`).appendTo(`#Area`)
             $(`<div>Perimeter: ${perm}</div>`).appendTo(`#Perimeter`)
             $(`<div>Width: ${this.length}</div>`).appendTo(`#Width`)
@@ -28,18 +29,12 @@ class Square extends Shape {
         }.bind(this))
     }
 };
-//let square = new Square(height, length)
-//square.getArea()
-//square.getPerimeter()
 
 class Rectangle extends Shape {
     constructor(height, length) {
         super(height, length)
     }
 }
-//let rectangle = new Rectangle(height, length)
-//rectangle.getArea()
-//rectangle.getPerimeter()
 
 class Circle extends Shape {
     constructor(height) {

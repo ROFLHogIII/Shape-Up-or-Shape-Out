@@ -5,10 +5,11 @@ class Shape {
         this.length = length;
     }
     getArea() {
-        return (this.length * this.height)
+        return (Number(this.length) * Number(this.height))
     }
     getPerimeter() {
-        return 2 * (this.length + this.height);
+        return 2 * (Number(this.length) + Number(this.height));
+       
     }
 };
 
